@@ -1,25 +1,24 @@
 Source: qtconnectivity-opensource-src
 Section: libs
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-XSBC-Original-Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Sune Vuorela <debian@pusling.com>,
            Pino Toscano <pino@debian.org>,
            Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>,
            Felix Geyer <fgeyer@debian.org>,
            Timo Jyrinki <timo@debian.org>,
            Dmitry Shachnev <mitya57@debian.org>
-Build-Depends: debhelper (>= 9),
+Build-Depends: debhelper (>= 9.20160114~),
                libbluetooth-dev [linux-any],
                pkg-config,
                pkg-kde-tools,
-               qtbase5-dev (>= 5.9.3+dfsg~),
-               qtbase5-private-dev (>= 5.9.3+dfsg~),
-               qtdeclarative5-private-dev (>= 5.9.3~)
-Build-Depends-Indep: libqt5sql5-sqlite (>= 5.9.3~),
-                     qtbase5-doc-html (>= 5.9.3+dfsg~),
-                     qttools5-dev-tools (>= 5.9.3~)
-Standards-Version: 4.1.1
+               qtbase5-dev (>= 5.9.1+dfsg~),
+               qtbase5-private-dev (>= 5.9.1+dfsg~),
+               qtdeclarative5-private-dev (>= 5.9.1~)
+Build-Depends-Indep: libqt5sql5-sqlite (>= 5.9.1~),
+                     qtbase5-doc-html (>= 5.9.1+dfsg~),
+                     qttools5-dev-tools (>= 5.9.1~)
+Standards-Version: 4.0.0
 Homepage: http://qt-project.org/
 Vcs-Git: https://anonscm.debian.org/git/pkg-kde/qt/qtconnectivity.git
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-kde/qt/qtconnectivity.git
@@ -38,7 +37,7 @@ Description: Qt Connectivity Bluetooth module
 Package: libqt5bluetooth5-bin
 Architecture: linux-any
 Section: utils
-Multi-Arch: foreign
+Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Qt Connectivity Bluetooth module helper binaries
@@ -108,6 +107,7 @@ Description: Qt 5 Connectivity examples
  This package contains Qt 5 Connectivity examples.
 
 Package: qtconnectivity5-doc
+Priority: extra
 Architecture: all
 Section: doc
 Depends: ${misc:Depends}
@@ -119,6 +119,7 @@ Description: Qt 5 Sensors documentation
  modules (Qt Bluetooth and Qt NFC).
 
 Package: qtconnectivity5-doc-html
+Priority: extra
 Architecture: all
 Section: doc
 Depends: ${misc:Depends}

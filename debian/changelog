@@ -1,35 +1,3 @@
-qtconnectivity-opensource-src (5.9.3-0ubports1) xenial; urgency=medium
-
-  [ Dmitry Shachnev ]
-  * Fix FTCBFS: use dh_auto_configure provided by debhelper, pass custom
-    PKG_CONFIG_LIBDIR and QMAKE_QMAKE (Closes: #880931).
-
-  [ Simon Quigley ]
-  * New upstream release.
-  * Bump build dependencies to Qt 5.9.3.
-
- -- Simon Quigley <tsimonq2@ubuntu.com>  Wed, 13 Dec 2017 22:40:55 -0600
-
-qtconnectivity-opensource-src (5.9.2-2) unstable; urgency=medium
-
-  * Upload to unstable.
-
- -- Dmitry Shachnev <mitya57@debian.org>  Fri, 27 Oct 2017 11:33:07 +0300
-
-qtconnectivity-opensource-src (5.9.2-1) experimental; urgency=medium
-
-  * New upstream release.
-  * Update debian/libqt5bluetooth5.symbols from buildds’ logs.
-  * Update for Qt binaries location change in qtbase 5.9.2+dfsg-3.
-    - Update libqt5bluetooth5-bin.install.
-    - Make libqt5bluetooth5-bin Multi-Arch: foreign.
-    - Provide a compatibility symlink for old sdpscanner location.
-  * Bump Qt build-dependencies to 5.9.2.
-  * Update debhelper compatibility level to 10.
-  * Bump Standards-Version to 4.1.1, stop using deprecated Priority: extra.
-
- -- Dmitry Shachnev <mitya57@debian.org>  Fri, 20 Oct 2017 15:59:26 +0300
-
 qtconnectivity-opensource-src (5.9.1-2) unstable; urgency=medium
 
   * Update symbols files with buildds' logs.
