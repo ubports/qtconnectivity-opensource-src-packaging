@@ -9,7 +9,7 @@ Uploaders: Sune Vuorela <debian@pusling.com>,
            Felix Geyer <fgeyer@debian.org>,
            Timo Jyrinki <timo@debian.org>,
            Dmitry Shachnev <mitya57@debian.org>
-Build-Depends: debhelper (>= 10.9.2~),
+Build-Depends: debhelper (>= 9),
                libbluetooth-dev [linux-any],
                pkg-config,
                pkg-kde-tools,
