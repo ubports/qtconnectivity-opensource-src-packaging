@@ -1,0 +1,44 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+include /usr/share/dpkg/architecture.mk
+
+export QT_SELECT := qt5
+
+%:
+	dh $@ --fail-missing --with pkgkde_symbolshelper
+
+override_dh_auto_configure:
+	# Be sure to regenerate the DBus cpp files
+	cd src/bluetooth/bluez/ ; ./generate
+	# Now call qmake
+	dh_auto_configure -- QMAKE_QMAKE=/usr/bin/$(DEB_HOST_GNU_TYPE)-qmake \
+		PKG_CONFIG_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig
+
+override_dh_auto_build-indep:
+	dh_auto_build -Smakefile -- docs
+
+override_dh_auto_install-arch:
+	dh_auto_install
+
+	# Remove libtool-like files
+	rm -fv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/*.la
+
+	# Remove private headers we are not installing.
+	rm -rfv debian/tmp/usr/include/$(DEB_HOST_MULTIARCH)/qt5/QtNfc/*/QtNfc/private/
+	rm -rfv debian/tmp/usr/include/$(DEB_HOST_MULTIARCH)/qt5/QtBluetooth/*/QtBluetooth/private/
+	find debian/tmp/usr/include/$(DEB_HOST_MULTIARCH)/qt5/ -type d -empty -delete
+
+override_dh_auto_install-indep:
+	make INSTALL_ROOT=$(CURDIR)/debian/tmp install_docs
+
+override_dh_link:
+	dh_link
+	dh_link -plibqt5bluetooth5-bin usr/lib/qt5/bin/sdpscanner usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/sdpscanner
+
+override_dh_auto_test-indep:
+
+override_dh_strip:
+	dh_strip --dbgsym-migration='qtconnectivity5-dbg (<< 5.9.0-1~)'
