@@ -3,19 +3,19 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-export CFLAGS := $(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
-export CXXFLAGS := $(shell dpkg-buildflags --get CXXFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
-export LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS) -Wl,--as-needed
+include /usr/share/dpkg/architecture.mk
+
 export QT_SELECT := qt5
 
 %:
-	dh $@ --fail-missing --parallel --with pkgkde_symbolshelper
+	dh $@ --parallel --fail-missing --with pkgkde_symbolshelper
 
 override_dh_auto_configure:
 	# Be sure to regenerate the DBus cpp files
 	cd src/bluetooth/bluez/ ; ./generate
 	# Now call qmake
-	qmake
+	qmake QMAKE_QMAKE=/usr/bin/$(DEB_HOST_GNU_TYPE)-qmake \
+		PKG_CONFIG_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig
 
 override_dh_auto_build-indep:
 	dh_auto_build -Smakefile -- docs
@@ -33,6 +33,10 @@ override_dh_auto_install-arch:
 
 override_dh_auto_install-indep:
 	make INSTALL_ROOT=$(CURDIR)/debian/tmp install_docs
+
+override_dh_link:
+	dh_link
+	dh_link -plibqt5bluetooth5-bin usr/lib/qt5/bin/sdpscanner usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/sdpscanner
 
 override_dh_auto_test-indep:
 

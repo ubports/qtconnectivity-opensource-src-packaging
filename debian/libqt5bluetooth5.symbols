@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 5.9.1 alpha powerpc
+# SymbolsHelper-Confirmed: 5.9.1 alpha armel armhf i386 m68k mips mipsel powerpc powerpcspe
 libQt5Bluetooth.so.5 libqt5bluetooth5 #MINVER#
 | libqt5bluetooth5 #MINVER#
  Qt_5.0@Qt_5.0 5.6.0
@@ -579,7 +579,7 @@ libQt5Bluetooth.so.5 libqt5bluetooth5 #MINVER#
  _ZNK31QLowEnergyAdvertisingParameters15minimumIntervalEv@Qt_5 5.7.0
  _ZNK31QLowEnergyAdvertisingParameters4modeEv@Qt_5 5.7.0
  _ZNK31QLowEnergyAdvertisingParameters9whiteListEv@Qt_5 5.7.0
- (optional=templinst|arch=powerpc)_ZSt4swapIN8QVariant7PrivateEENSt9enable_ifIXsrSt6__and_IJSt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SG_@Qt_5 5.9.1
+ (optional=templinst|arch=armel armhf i386 m68k mips mipsel powerpc powerpcspe)_ZSt4swapIN8QVariant7PrivateEENSt9enable_ifIXsrSt6__and_IJSt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SG_@Qt_5 5.9.1
  (arch=!hurd-i386 !kfreebsd-amd64 !kfreebsd-i386)_ZTI12QDBusContext@Qt_5 5.6.0
  _ZTI16QBluetoothServer@Qt_5 5.6.0
  _ZTI16QBluetoothSocket@Qt_5 5.6.0
