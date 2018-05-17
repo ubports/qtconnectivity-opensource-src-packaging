@@ -1,8 +1,16 @@
-qtconnectivity-opensource-src (5.9.3-0ubports2) xenial; urgency=medium
+qtconnectivity-opensource-src (5.9.5-0ubports1) xenial; urgency=medium
 
-  * Build for xenial 
+  * New upstream release.
+  * Bump Qt build-dependencies to 5.9.5.
+  * Update Vcs fields for migration to salsa.debian.org.
 
- -- Marius <mariogrip@ubuntu.com>  Sun, 25 Feb 2018 01:13:48 +0100
+ -- Dmitry Shachnev <mitya57@ubuntu.com>  Mon, 16 Apr 2018 09:57:08 +0300
+
+qtconnectivity-opensource-src (5.9.4-0ubuntu1) bionic; urgency=medium
+
+  * New upstream release.
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Sun, 25 Feb 2018 19:15:20 -0600
 
 qtconnectivity-opensource-src (5.9.3-0ubuntu1) bionic; urgency=medium
 
